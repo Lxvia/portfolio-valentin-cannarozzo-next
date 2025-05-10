@@ -1,4 +1,3 @@
-import Navbar from "@/app/components/Navbar";
 import "./globals.scss";
 import type { Metadata } from "next";
 
