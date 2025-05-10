@@ -1,0 +1,40 @@
+.homeHeaderContainer {
+    height: calc(100vh - 3.5em);
+    margin: 0 5em 0 5em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+
+    .headerLeft {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1em;
+
+        //h1 {
+        //    font-size: 4.5em;
+        //}
+    }
+
+    .headerRight {
+        width: 40%;
+        display: flex;
+        justify-content: flex-end;
+
+
+        .imgWrapper {
+            width: auto;
+            height: 90vh;
+
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 15px;
+                object-fit: cover;
+            }
+        }
+    }
+}

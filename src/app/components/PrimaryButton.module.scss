@@ -1,0 +1,28 @@
+@use '../../styles/variables' as *;
+
+
+
+.primaryButton {
+    display: inline-block;
+    width: fit-content;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: $vert;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+}
+
+.primaryButton:hover {
+    background-color: $vert;
+    transform: scale(1.05);
+}
+
+.primaryButton:active {
+    background-color: $vert;
+    transform: scale(0.98);
+}

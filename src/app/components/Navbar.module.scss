@@ -1,0 +1,48 @@
+@use '../../styles/variables' as *;
+
+.navbarContainer {
+    height: 3.5em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: $noir;
+    color: white;
+
+    .navbarLinks {
+        display: flex;
+        gap: 2rem;
+        justify-content: flex-start;
+        width: 15em;
+
+        a {
+            color: #f9f5ea;
+            font-size: 1rem;
+            font-weight: bold;
+            width: auto;
+
+            &:hover {
+                color: white;
+                /* Changement de couleur au survol */
+            }
+        }
+    }
+
+    .navbarTitle {
+        font-size: 1.5rem !important;
+        font-weight: bold;
+        text-align: center;
+        /* Centre le texte dans son conteneur */
+        flex-grow: 1;
+        /* Permet à h1 de prendre toute la largeur restante */
+    }
+
+    .navbarIcons {
+        display: flex;
+        gap: 1em;
+        justify-content: flex-end;
+        width: 15em;
+        /* Alignement des icônes à droite */
+    }
+}
