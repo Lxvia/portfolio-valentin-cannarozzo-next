@@ -1,0 +1,29 @@
+/* /app/gallery/styles.module.scss */
+.galleryContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 15%;
+    grid-template-areas:
+        "left right"
+        "bottom bottom";
+    height: 100vh;
+    width: 100vw;
+}
+
+.galleryLeft {
+    grid-area: left;
+    background-color: lightcoral;
+    /* pour visualiser */
+}
+
+.galleryRight {
+    grid-area: right;
+    background-color: lightblue;
+    /* pour visualiser */
+}
+
+.galleryBottom {
+    grid-area: bottom;
+    background-color: lightgreen;
+    /* pour visualiser */
+}

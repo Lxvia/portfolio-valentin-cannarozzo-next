@@ -7,14 +7,13 @@ const Navbar = () => {
     return (
         <div className={styles.navbarContainer}>
             <div className={styles.navbarLinks}>
-                <Link href="/">Parcours</Link>
+                <Link href="/">Accueil</Link>
                 <Link href="/gallery">Galerie</Link>
-                <Link href="/">Liennnn</Link>
+                <Link href="/">Parcours</Link>
             </div>
-            <h1 className={styles.navbarTitle}>Valentin C.</h1>
             <div className={styles.navbarIcons}>
-                <FaInstagram size={24} style={{ display: 'inline-flex' }} />  {/* Applique inline-flex ici */}
-                <FaEnvelope size={24} style={{ display: 'inline-flex' }} />  {/* Applique inline-flex ici */}
+                <FaInstagram size={26} style={{ display: 'inline-flex' }} />  {/* Applique inline-flex ici */}
+                <FaEnvelope size={26} style={{ display: 'inline-flex' }} />  {/* Applique inline-flex ici */}
             </div>
         </div>
     );

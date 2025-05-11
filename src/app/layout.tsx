@@ -1,5 +1,13 @@
 import "./globals.scss";
 import type { Metadata } from "next";
+import { Work_Sans } from 'next/font/google';
+
+const workSans = Work_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-work-sans',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={workSans.variable}>
       <body>
         {children}
       </body>

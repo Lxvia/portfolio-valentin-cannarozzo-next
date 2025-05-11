@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import PrimaryButton from './PrimaryButton';
 import styles from './HomeHeader.module.scss';
+import Link from 'next/link';
 
 export default function HomeHeader() {
     return (
@@ -19,7 +20,7 @@ export default function HomeHeader() {
                     comprendre notre époque et ouvrir des dialogues sincères.
                 </p>
                 <div className={styles.btnContainer}>
-                    <PrimaryButton text="En savoir plus" path="/" />
+                    <Link href='/gallery'>En savoir plus</Link>
                 </div>
             </div>
             <div className={styles.headerRight}>
