@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import PrimaryButton from './PrimaryButton';
 import styles from './HomeHeader.module.scss';
 import Link from 'next/link';
 
