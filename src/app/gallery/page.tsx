@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import { artworks } from '@/data/artworks';
 import styles from './styles.module.scss';
-import GalleryNavbar from '../components/Gallery/GalleryNavbar/page';
-import GalleryLayout from '../components/Gallery/GalleryLayout/page';
+import GalleryNavbar from '../components/Gallery/GalleryNavbar/GalleryNavbar';
+import GalleryLayout from '../components/Gallery/GalleryLayout/GalleryLayout';
 
 const Gallery: React.FC = () => {
     const [selectedYear, setSelectedYear] = useState<'all' | number>('all');
