@@ -7,9 +7,10 @@ import { Artwork } from '@/data/artworks'; // si tu as un type ou une interface 
 
 interface GalleryLayoutProps {
     artworks: Artwork[];
+    onSelectArtwork: (art: Artwork) => void;
 }
 
-const GalleryLayout: React.FC<GalleryLayoutProps> = ({ artworks }) => {
+const GalleryLayout: React.FC<GalleryLayoutProps> = ({ artworks, onSelectArtwork }) => {
     return (
         <div className={styles.galleryGrid}>
             {artworks.map((art) => (
@@ -18,6 +19,7 @@ const GalleryLayout: React.FC<GalleryLayoutProps> = ({ artworks }) => {
                     src={art.imageUrl}
                     alt={art.title}
                     className={styles.artworkImage}
+                    onClick={() => onSelectArtwork(art)}
                 />
             ))}
         </div>
