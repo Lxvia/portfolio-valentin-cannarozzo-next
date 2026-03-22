@@ -1,4 +1,4 @@
-import TemporaryHome from "@/app/components/TemporaryHome";
+import TemporaryHome from "@/src/app/components/TemporaryHome";
 
 export default function Home() {
   return <TemporaryHome />;
