@@ -3,7 +3,7 @@
 
 import React from 'react';
 import styles from './styles.module.scss';
-import { Artwork } from '@/data/artworks'; // si tu as un type ou une interface définie
+import type { Artwork } from '@/types/artwork'; // si tu as un type ou une interface définie
 
 interface GalleryLayoutProps {
     artworks: Artwork[];

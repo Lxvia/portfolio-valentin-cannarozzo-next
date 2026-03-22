@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styles from './styles.module.scss'
-import { Artwork } from '@/data/artworks';
+import type { Artwork } from '@/types/artwork';
 import { useEffect, useState } from 'react';
 
 
@@ -47,9 +47,9 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
                         <p>{artwork.description}</p>
                     </div>
 
-                    {artwork.details && artwork.details.length > 0 && (
+                    {artwork.detailImages && artwork.detailImages.length > 0 && (
                         <div className={styles.detailsGallery}>
-                            {[artwork.imageUrl, ...artwork.details].map((detailUrl, index) => (
+                            {[artwork.imageUrl, ...artwork.detailImages].map((detailUrl, index) => (
                                 <img
                                     key={index}
                                     src={detailUrl}
