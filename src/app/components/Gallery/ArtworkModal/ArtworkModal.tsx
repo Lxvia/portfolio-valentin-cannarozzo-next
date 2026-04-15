@@ -59,6 +59,7 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
             const ref = doc(db, 'artworks', artwork.id);
             await updateDoc(ref, { title, description, collection, isSold, isPublished });
             onUpdate({ ...artwork, title, description, collection, isSold, isPublished });
+            setIsPublished(artwork.isPublished);
             setIsEditing(false);
         } catch (err) {
             setSaveError('Erreur lors de la sauvegarde.');

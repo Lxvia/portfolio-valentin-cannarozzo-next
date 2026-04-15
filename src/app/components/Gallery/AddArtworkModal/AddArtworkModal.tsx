@@ -66,7 +66,6 @@ const AddArtworkModal: React.FC<AddArtworkModalProps> = ({ onClose, onAdd, curre
             }
 
             // Création du document Firestore
-            const id = `${titleSlug}-${Date.now()}`;
             const newArtwork = {
                 title,
                 description,
