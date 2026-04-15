@@ -1,6 +1,7 @@
 import "./globals.scss";
 import type { Metadata } from "next";
 import { Work_Sans } from 'next/font/google';
+import { AuthProvider } from '../context/AuthContext';
 
 const workSans = Work_Sans({
   subsets: ['latin'],
@@ -22,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={workSans.variable}>
       <body>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

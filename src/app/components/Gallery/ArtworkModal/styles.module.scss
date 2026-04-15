@@ -1,5 +1,7 @@
 @use '../../../../styles/variables' as *;
 
+// ─── Layout principal ─────────────────────────────────────────────────────────
+
 .modalOverlay {
     position: fixed;
     top: 0;
@@ -39,15 +41,119 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     overflow: hidden;
     padding-top: 0.5em;
+    padding-left: 3px;
+}
+
+// ─── Haut : titre + contenu ───────────────────────────────────────────────────
+
+.detailsTop {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.titleRow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
 
     h1 {
         font-size: 30px;
-        margin-bottom: 0.5em;
+        margin: 0;
+        padding-left: 0;
+        text-indent: -3px; // ← ajuste la valeur selon le rendu
     }
 }
+
+.collection {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.description {
+    margin-top: 0.5rem;
+}
+
+// ─── Bas : pastille + vignettes ───────────────────────────────────────────────
+
+.detailsBottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: none;
+    cursor: default;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.available {
+    background: #e6f4ea;
+    color: #2e7d32;
+}
+
+.sold {
+    background: #fdecea;
+    color: #c62828;
+}
+
+.publishButton {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border: none;
+}
+
+.published {
+    background: #e6f4ea;
+    color: #2e7d32;
+}
+
+.unpublished {
+    background: #fdecea;
+    color: #c62828;
+}
+
+// ─── Vignettes détail ─────────────────────────────────────────────────────────
+
+.detailsGallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.detailImage {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.detailImage.active {
+    border: 2px solid $vert;
+}
+
+// ─── Boutons navigation ───────────────────────────────────────────────────────
 
 .closeButton {
     position: absolute;
@@ -81,30 +187,77 @@
     right: 1rem;
 }
 
-// Images détails
+// ─── Mode admin ───────────────────────────────────────────────────────────────
 
-.detailsGallery {
+.adminActions {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: 1rem;
-    align-self: flex-end;
-    max-width: 100%;
-    padding-top: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
-.detailImage {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 4px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+.editButton {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
     cursor: pointer;
-    border: 2px solid transparent;
-    transition: transform 0.2s ease, border 0.2s ease;
+    padding: 0;
+    line-height: 1;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 1;
+    }
 }
 
-.detailImage.active {
-    border: 1px solid $vert;
+.saveButton {
+    background: $vert;
+    border: none;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+.cancelButton {
+    background: none;
+    border: 1px solid #ccc;
+    color: #666;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.editInput {
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.editTextarea {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    width: 100%;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
 }
