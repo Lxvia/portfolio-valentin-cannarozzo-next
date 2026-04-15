@@ -2,8 +2,9 @@
 
 import React from 'react';
 import styles from './styles.module.scss'
-import { Artwork } from '@/data/artworks';
+import type { Artwork } from '@/types/artwork';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 
 interface ArtworkModalProps {
@@ -40,20 +41,29 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
     return (
         <div className={styles.modalOverlay} onClick={onClose}>
             <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-                <img src={currentImage} alt={artwork.title} className={styles.artworkImage} />
+
+                {/* Image principale — img classique, taille gérée par le CSS */}
+                <img
+                    src={currentImage}
+                    alt={artwork.title}
+                    className={styles.artworkImage}
+                />
+
                 <div className={styles.artworkDetails}>
                     <div>
                         <h1>{artwork.title}</h1>
                         <p>{artwork.description}</p>
                     </div>
 
-                    {artwork.details && artwork.details.length > 0 && (
+                    {artwork.detailImages && artwork.detailImages.length > 0 && (
                         <div className={styles.detailsGallery}>
-                            {[artwork.imageUrl, ...artwork.details].map((detailUrl, index) => (
-                                <img
+                            {[artwork.imageUrl, ...artwork.detailImages].map((detailUrl, index) => (
+                                <Image
                                     key={index}
                                     src={detailUrl}
                                     alt={`Détail ${index} de ${artwork.title}`}
+                                    width={60}
+                                    height={60}
                                     className={`${styles.detailImage} ${currentImage === detailUrl ? styles.active : ''}`}
                                     onClick={() => setCurrentImage(detailUrl)}
                                 />
@@ -61,10 +71,10 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
                         </div>
                     )}
                 </div>
+
                 <button onClick={onClose} className={styles.closeButton}>×</button>
                 <button className={styles.arrow + ' ' + styles.leftArrow} onClick={onPrev}>←</button>
                 <button className={styles.arrow + ' ' + styles.rightArrow} onClick={onNext}>→</button>
-
             </div>
         </div>
     );
