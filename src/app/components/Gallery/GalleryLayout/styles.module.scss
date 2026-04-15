@@ -5,11 +5,13 @@
     justify-content: center;
 }
 
-.artworkImage {
+.artworkWrapper {
+    position: relative;
     width: 200px;
-    height: auto;
+    height: 260px;
+    cursor: pointer;
     border-radius: 8px;
-    object-fit: cover;
+    overflow: hidden;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
 
@@ -17,4 +19,8 @@
         transform: scale(1.05);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
+}
+
+.artworkImage {
+    object-fit: cover;
 }

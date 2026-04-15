@@ -8,4 +8,5 @@ export interface Artwork {
     collection?: string;
     order: number;
     isPublished: boolean;
+    isSold: boolean;
 }
