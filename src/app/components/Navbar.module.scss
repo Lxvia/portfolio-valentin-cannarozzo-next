@@ -20,9 +20,9 @@
             color: $noir;
             font-size: 0.9em;
             width: auto;
-            border: solid, 1px, $noir;
+            border: solid 1px $noir;
             border-radius: 50px;
-            padding: 5px 15px 5px 15px;
+            padding: 5px 15px;
 
             &:hover {
                 color: $beige;
@@ -37,6 +37,39 @@
         gap: 1.5em;
         justify-content: flex-end;
         width: 15em;
-        /* Alignement des icônes à droite */
+    }
+
+    .iconLink {
+        color: $vert;
+        display: inline-flex;
+        align-items: center;
+        transition: color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            color: #08210b;
+            transform: scale(1.1);
+        }
+    }
+}
+
+// ─── Mobile ───────────────────────────────────────────────────────────────────
+@media (max-width: 768px) {
+    .navbarContainer {
+        padding: 0 1em;
+
+        .navbarLinks {
+            gap: 0.5rem;
+            width: auto;
+
+            a {
+                font-size: 0.75em;
+                padding: 4px 10px;
+            }
+        }
+
+        .navbarIcons {
+            gap: 1em;
+            width: auto;
+        }
     }
 }

@@ -14,15 +14,10 @@ const GalleryNavbar: React.FC<GalleryNavbarProps> = ({ selectedYear, onSelectYea
     const router = useRouter();
 
     return (
-        <div>
-            {/* Navbar */}
-            <div className={styles.filterBar}>
-                <button
-                    className={styles.backButton}
-                    onClick={() => router.push('/home')}
-                >
-                    ←
-                </button>
+        <div className={styles.filterBar}>
+
+            {/* Boutons sur desktop */}
+            <div className={styles.filterButtons}>
                 <button
                     className={`${styles.filterButton} ${selectedYear === 'all' ? styles.active : ''}`}
                     onClick={() => onSelectYear('all')}
@@ -39,6 +34,21 @@ const GalleryNavbar: React.FC<GalleryNavbarProps> = ({ selectedYear, onSelectYea
                     </button>
                 ))}
             </div>
+
+            {/* Select déroulant sur mobile */}
+            <select
+                className={styles.filterSelect}
+                value={selectedYear}
+                onChange={(e) => {
+                    const val = e.target.value;
+                    onSelectYear(val === 'all' ? 'all' : Number(val));
+                }}
+            >
+                <option value="all">Toutes les œuvres</option>
+                {years.map((year) => (
+                    <option key={year} value={year}>{year}</option>
+                ))}
+            </select>
         </div>
     );
 };
