@@ -83,6 +83,7 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
         <div className={styles.modalOverlay} onClick={onClose}>
             <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
 
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={currentImage} alt={artwork.title} className={styles.artworkImage} />
 
                 <div className={styles.artworkDetails}>
@@ -169,7 +170,7 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
                             )}
 
                             {!isSold && (
-                                <a href={`mailto:valentin@cannarozzo.com?subject=Intéressé par l'œuvre : ${artwork.title}`}
+                                <a href={`mailto:valentin@cannarozzo.com?subject=Intéressé par l&apos;œuvre : ${artwork.title}`}
                                     className={styles.contactButton}
                                 >
                                     <FiShoppingBag size={16} />
