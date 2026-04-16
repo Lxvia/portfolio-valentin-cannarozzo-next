@@ -169,14 +169,12 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
                                 </span>
                             )}
 
-                            {!isSold && (
-                                <a href={`mailto:valentin@cannarozzo.com?subject=Intéressé par l&apos;œuvre : ${artwork.title}`}
-                                    className={styles.contactButton}
-                                >
-                                    <FiShoppingBag size={16} />
-                                    <span className={styles.contactText}>Cette œuvre m'intéresse</span>
-                                </a>
-                            )}
+                            <a href={`mailto:valentin@cannarozzo.com?subject=Intéressé par l%27œuvre : ${artwork.title}`}
+                                className={styles.contactButton}
+                            >
+                                <FiShoppingBag size={16} />
+                                <span className={styles.contactText}>Cette œuvre m&apos;intéresse</span>
+                            </a>
                         </div>
 
                         {artwork.detailImages && artwork.detailImages.length > 0 && (
