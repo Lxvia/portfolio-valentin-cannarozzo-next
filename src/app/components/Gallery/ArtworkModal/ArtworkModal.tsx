@@ -7,6 +7,7 @@ import { db } from '@/lib/firebase';
 import { useAuth } from '../../../../context/AuthContext';
 import type { Artwork } from '@/types/artwork';
 import styles from './styles.module.scss';
+import { FiShoppingBag } from 'react-icons/fi';
 
 interface ArtworkModalProps {
     artwork: Artwork;
@@ -147,24 +148,35 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
 
                     {/* Bas : pastille + vignettes */}
                     <div className={styles.detailsBottom}>
-                        {isAdmin ? (
-                            isEditing ? (
-                                <button
-                                    className={`${styles.badge} ${isSold ? styles.sold : styles.available}`}
-                                    onClick={() => setIsSold(!isSold)}
-                                >
-                                    {isSold ? 'Vendu' : 'Disponible'}
-                                </button>
+                        <div className={styles.badgeRow}>
+                            {isAdmin ? (
+                                isEditing ? (
+                                    <button
+                                        className={`${styles.badge} ${isSold ? styles.sold : styles.available}`}
+                                        onClick={() => setIsSold(!isSold)}
+                                    >
+                                        {isSold ? 'Vendu' : 'Disponible'}
+                                    </button>
+                                ) : (
+                                    <span className={`${styles.badge} ${isSold ? styles.sold : styles.available}`}>
+                                        {isSold ? 'Vendu' : 'Disponible'}
+                                    </span>
+                                )
                             ) : (
                                 <span className={`${styles.badge} ${isSold ? styles.sold : styles.available}`}>
                                     {isSold ? 'Vendu' : 'Disponible'}
                                 </span>
-                            )
-                        ) : (
-                            <span className={`${styles.badge} ${isSold ? styles.sold : styles.available}`}>
-                                {isSold ? 'Vendu' : 'Disponible'}
-                            </span>
-                        )}
+                            )}
+
+                            {!isSold && (
+                                <a href={`mailto:valentin@cannarozzo.com?subject=Intéressé par l'œuvre : ${artwork.title}`}
+                                    className={styles.contactButton}
+                                >
+                                    <FiShoppingBag size={16} />
+                                    <span className={styles.contactText}>Cette œuvre m'intéresse</span>
+                                </a>
+                            )}
+                        </div>
 
                         {artwork.detailImages && artwork.detailImages.length > 0 && (
                             <div className={styles.detailsGallery}>
