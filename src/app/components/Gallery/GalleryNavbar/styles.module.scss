@@ -12,13 +12,14 @@
 }
 
 .backButton {
+    position: absolute; // ← sort du flux
+    left: 1rem; // ← collé à gauche
     background: none;
     border: none;
     color: $vert;
     font-size: 2rem;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
-    flex-shrink: 0;
 
     &:hover {
         transform: translateX(-3px);
@@ -64,6 +65,10 @@
 
 // ─── Mobile ───────────────────────────────────────────────────────────────────
 @media (max-width: 768px) {
+    .backButton {
+        display: none;
+    }
+
     .filterButtons {
         display: none;
     }
