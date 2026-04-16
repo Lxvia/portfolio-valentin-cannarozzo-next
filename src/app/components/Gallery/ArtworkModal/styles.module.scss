@@ -64,7 +64,7 @@
         font-size: 30px;
         margin: 0;
         padding-left: 0;
-        text-indent: -3px; // ← ajuste la valeur selon le rendu
+        text-indent: -3px;
     }
 }
 
@@ -215,7 +215,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 2rem;
+    font-size: 3rem;
     background: none;
     border: none;
     color: $vert;
@@ -305,4 +305,39 @@
 .error {
     color: red;
     font-size: 0.8rem;
+}
+
+// ─── Mobile ───────────────────────────────────────────────────────────────────
+
+@media (max-width: 768px) {
+    .modalContent {
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 0;
+        padding: 1rem;
+        overflow-y: auto;
+        align-items: center; // ← ajoute ça
+    }
+
+    .artworkImage {
+        width: 85%; // ← plus large
+        height: auto; // ← hauteur automatique
+        max-height: 50vh; // ← limite la hauteur
+        margin-right: 0;
+        margin-bottom: 3em;
+        margin-top: 3rem;
+        object-fit: contain;
+    }
+
+    .artworkDetails {
+        width: 100%; // ← ajoute ça
+        overflow: visible;
+    }
+
+    .arrow {
+        display: none;
+    }
 }

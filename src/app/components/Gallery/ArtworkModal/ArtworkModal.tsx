@@ -29,6 +29,7 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
     const [saving, setSaving] = useState(false);
     const [saveError, setSaveError] = useState('');
     const [isPublished, setIsPublished] = useState(artwork.isPublished);
+    const [touchStartX, setTouchStartX] = useState(0);
 
 
     useEffect(() => {
@@ -79,9 +80,23 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
         setSaveError('');
     };
 
+    const handleTouchStart = (e: React.TouchEvent) => {
+        setTouchStartX(e.touches[0].clientX);
+    };
+
+    const handleTouchEnd = (e: React.TouchEvent) => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) onNext();
+            else onPrev();
+        }
+    };
+
     return (
         <div className={styles.modalOverlay} onClick={onClose}>
-            <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}>
 
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={currentImage} alt={artwork.title} className={styles.artworkImage} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaInstagram, FaEnvelope } from 'react-icons/fa';
 import Link from 'next/link';
-import styles from './Navbar.module.scss';  // Importation du module SCSS
+import styles from './Navbar.module.scss';
 
 const Navbar = () => {
     return (
@@ -12,8 +12,20 @@ const Navbar = () => {
                 <Link href="/">Parcours</Link>
             </div>
             <div className={styles.navbarIcons}>
-                <FaInstagram size={26} style={{ display: 'inline-flex' }} />  {/* Applique inline-flex ici */}
-                <FaEnvelope size={26} style={{ display: 'inline-flex' }} />  {/* Applique inline-flex ici */}
+                <a
+                    href="https://www.instagram.com/valentin.cnrz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.iconLink}
+                >
+                    <FaInstagram size={26} />
+                </a>
+                <a
+                    href="mailto:cannarozzovalentin@gmail.com"
+                    className={styles.iconLink}
+                >
+                    <FaEnvelope size={26} />
+                </a>
             </div>
         </div>
     );
