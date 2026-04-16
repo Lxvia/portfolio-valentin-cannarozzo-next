@@ -11,7 +11,7 @@ export async function getArtworks(): Promise<Artwork[]> {
             ...(doc.data() as Omit<Artwork, 'id'>),
         }))
         .filter((art) => art.isPublished)
-        .sort((a, b) => a.order - b.order);
+        .sort((a, b) => b.year - a.year || a.order - b.order);
 
     return data;
 }

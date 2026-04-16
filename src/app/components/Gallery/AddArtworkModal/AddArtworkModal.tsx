@@ -149,6 +149,7 @@ const AddArtworkModal: React.FC<AddArtworkModalProps> = ({ onClose, onAdd, curre
                             required
                         />
                         {mainImage && (
+                            // eslint-disable-next-line @next/next/no-img-element
                             <img
                                 src={URL.createObjectURL(mainImage)}
                                 alt="preview"
@@ -168,6 +169,7 @@ const AddArtworkModal: React.FC<AddArtworkModalProps> = ({ onClose, onAdd, curre
                         {detailImages.length > 0 && (
                             <div className={styles.previewRow}>
                                 {detailImages.map((file, i) => (
+                                    // eslint-disable-next-line @next/next/no-img-element
                                     <img
                                         key={i}
                                         src={URL.createObjectURL(file)}
