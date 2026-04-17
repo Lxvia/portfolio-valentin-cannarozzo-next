@@ -157,6 +157,12 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
                                 <button className={styles.cancelButton} onClick={handleCancel} disabled={saving}>
                                     Annuler
                                 </button>
+                                <button
+                                    className={`${styles.publishButton} ${isPublished ? styles.published : styles.unpublished}`}
+                                    onClick={() => setIsPublished(!isPublished)}
+                                >
+                                    {isPublished ? '👁️ Publié' : '🚫 Masqué'}
+                                </button>
                                 {saveError && <p className={styles.error}>{saveError}</p>}
                             </div>
                         )}
