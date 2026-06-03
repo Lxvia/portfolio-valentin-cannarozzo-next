@@ -100,6 +100,10 @@
             p {
                 font-size: 0.95em;
             }
+
+            p+p {
+                margin-top: 1rem;
+            }
         }
 
         .headerRight {

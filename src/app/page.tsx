@@ -1,5 +1,11 @@
-import TemporaryHome from "@/src/app/components/TemporaryHome";
+import HomeHeader from "./components/HomeHeader";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
-  return <TemporaryHome />;
+  return (
+    <div>
+      <Navbar />
+      <HomeHeader />
+    </div>
+  );
 }

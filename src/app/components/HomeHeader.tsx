@@ -10,16 +10,13 @@ export default function HomeHeader() {
                     Valentin <br />
                     Cannarozzo.
                 </h1>
-                <p>
-                    Mon travail artistique, qu’il s’agisse de dessin, de peinture ou de photographie, est une exploration profonde de
-                    mon identité et une manière d’interroger les complexités du monde qui m’entoure.
-                    C’est un espace où je me confronte à mes propres questionnements en tant qu’être humain tout en cherchant
-                    à aborder des thèmes qui dépassent l’individuel, notamment ceux liés à la santé mentale et à des enjeux
-                    sociaux fondamentaux. Ces thématiques, souvent taboues ou ignorées, sont pour moi des piliers essentiels pour
-                    comprendre notre époque et ouvrir des dialogues sincères.
-                </p>
+                <p>Mon travail artistique, qu&apos;il s&apos;agisse de dessin, de peinture ou de photographie, est une exploration profonde de mon identité et une manière d&apos;interroger les complexités du monde qui m&apos;entoure.</p>
+
+                <p>La peinture a longtemps été un espace de confrontation et de réparation, faisant émerger des figures fragmentées et des corps en tension. En parallèle, le dessin a donné naissance à des formes hybrides et colorées, où le monstrueux devient un terrain de réinvention, en résonance avec mon identité queer.</p>
+
+                <p>Je m&apos;intéresse à l&apos;empreinte du vécu, l&apos;émotion, le souvenir, la sensation. Le corps y apparaît comme un lieu de mémoire, instable et en constante transformation.</p>
                 <div className={styles.btnContainer}>
-                    <Link href='/gallery'>En savoir plus</Link>
+                    <Link href='/parcours'>En savoir plus</Link>
                 </div>
             </div>
             <div className={styles.headerRight}>
