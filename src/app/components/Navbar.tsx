@@ -8,8 +8,8 @@ const Navbar = () => {
         <div className={styles.navbarContainer}>
             <div className={styles.navbarLinks}>
                 <Link href="/">Accueil</Link>
+                <Link href="/parcours">Parcours</Link>
                 <Link href="/gallery">Galerie</Link>
-                <Link href="/">Parcours</Link>
             </div>
             <div className={styles.navbarIcons}>
                 <a
