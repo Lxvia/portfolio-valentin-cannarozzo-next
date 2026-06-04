@@ -12,7 +12,6 @@
         width: 40%;
         display: flex;
 
-
         .imgWrapper {
             width: auto;
             height: 90vh;
@@ -33,10 +32,77 @@
         justify-content: center;
         overflow: visible;
 
-        h1 {
-            margin-left: -0.1em;
-            color: $noir;
-            font-size: 6em;
+        span {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        a {
+            font-weight: bold;
+            color: $vert;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+    }
+}
+
+// ─── Tablette ────────────────────────────────────────────────────────────────
+@media (max-width: 1024px) {
+    .parcoursContainer {
+        margin: 0 2em;
+        height: auto; // ← accepte le scroll
+        padding: 2em 0; // ← ajoute du padding
+    }
+
+    .headerRight {
+        p {
+            font-size: 0.85em;
+        }
+    }
+}
+
+// ─── Mobile ───────────────────────────────────────────────────────────────────
+@media (max-width: 820px) {
+    .parcoursContainer {
+        height: auto;
+        margin: 0 1.5em;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2em 0;
+        gap: 2em;
+    }
+
+    .headerRight {
+        width: 100% !important;
+        order: 1;
+
+        p {
+            font-size: 0.95em;
+        }
+    }
+
+    .headerLeft {
+        width: 100% !important;
+        order: 2;
+        justify-content: center;
+
+        .imgWrapper {
+            width: 100% !important;
+            height: 70vw; // ← plus grand
+            max-height: 500px; // ← augmente le max
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
     }
 }

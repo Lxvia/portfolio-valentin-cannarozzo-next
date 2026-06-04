@@ -31,6 +31,13 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
     const [isPublished, setIsPublished] = useState(artwork.isPublished);
     const [touchStartX, setTouchStartX] = useState(0);
 
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, []);
+
 
     useEffect(() => {
         setCurrentImage(artwork.imageUrl);
