@@ -25,9 +25,9 @@ const GalleryLayout: React.FC<GalleryLayoutProps> = ({ artworks, onSelectArtwork
                         alt={art.title}
                         fill
                         className={styles.artworkImage}
-                        priority={index < 18}
-                        loading={index < 18 ? 'eager' : 'lazy'}
-                        sizes="200px"
+                        priority={index < 6}
+                        loading={index < 6 ? 'eager' : 'lazy'}
+                        sizes="(max-width: 768px) 50vw, 200px"
                     />
                 </div>
             ))}
