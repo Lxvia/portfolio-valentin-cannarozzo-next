@@ -22,10 +22,11 @@ export default function HomeHeader() {
             <div className={styles.headerRight}>
                 <div className={styles.imgWrapper}>
                     <Image
-                        src="/imgs/valou.jpg"
+                        src="/imgs/valou.webp"
                         alt="photo de Valentin qui peint un tableau"
                         width={500}
                         height={500}
+                        priority
                     />
                 </div>
             </div>
