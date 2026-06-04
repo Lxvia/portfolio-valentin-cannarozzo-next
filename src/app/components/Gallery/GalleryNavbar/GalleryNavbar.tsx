@@ -17,7 +17,7 @@ const GalleryNavbar: React.FC<GalleryNavbarProps> = ({ selectedYear, onSelectYea
         <div className={styles.filterBar}>
             <button
                 className={styles.backButton}
-                onClick={() => router.push('/home')}
+                onClick={() => router.push('/')}
             >
                 ←
             </button>
