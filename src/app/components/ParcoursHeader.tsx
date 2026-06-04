@@ -18,11 +18,11 @@ export default function ParcoursHeader() {
                 <p>
                     <span>Artiste pluridisciplinaire</span> basé à Strasbourg, diplômé en design graphique à LISAA (2016) et indépendant depuis 2017, je développe une pratique mêlant création visuelle, écriture et interventions publiques.<br /><br />
 
-                    Mes premières œuvres, réunies sous le titre "Les amis imaginaires", explorent des territoires psychiques alors inaccessibles, à travers des figures qui tentent de donner forme à des blessures et des silences.<br /><br />
+                    Mes premières œuvres, réunies sous le titre &quot;Les amis imaginaires&quot;, explorent des territoires psychiques alors inaccessibles, à travers des figures qui tentent de donner forme à des blessures et des silences.<br /><br />
 
                     Mon travail a été présenté dans plusieurs expositions collectives entre Lausanne et Paris (Salon d’art contemporain de Colombes, Salon des Arts Visuels, Salon des 40 à Saint-Louis…), ainsi que lors de trois expositions personnelles.<br /><br />
 
-                    À partir de 2020, un tournant s’opère. La disparition d’un proche et les bouleversements du monde m’amènent à redéfinir ma pratique. L’œuvre "L’autre, c’est moi" marque ce basculement: reconnaître mes fractures devient une ouverture vers l’autre.<br /><br />
+                    À partir de 2020, un tournant s’opère. La disparition d’un proche et les bouleversements du monde m’amènent à redéfinir ma pratique. L’œuvre &quot;L’autre, c’est moi&quot; marque ce basculement: reconnaître mes fractures devient une ouverture vers l’autre.<br /><br />
 
                     Depuis 2023, je poursuis cette recherche à travers mon podcast <a href='https://www.instagram.com/sous_ma_peau/' target='blank'>Sous ma peau</a>, centré sur l’humain.<br /><br />
 
