@@ -83,6 +83,8 @@ const Gallery: React.FC = () => {
             {selectedArtwork && (
                 <ArtworkModal
                     artwork={selectedArtwork}
+                    nextArtwork={filteredArtworks[(filteredArtworks.findIndex(a => a.id === selectedArtwork.id) + 1) % filteredArtworks.length]}
+                    prevArtwork={filteredArtworks[(filteredArtworks.findIndex(a => a.id === selectedArtwork.id) - 1 + filteredArtworks.length) % filteredArtworks.length]}
                     onClose={closeModal}
                     onPrev={goToPrev}
                     onNext={goToNext}

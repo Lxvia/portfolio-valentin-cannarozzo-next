@@ -11,13 +11,15 @@ import { FiShoppingBag } from 'react-icons/fi';
 
 interface ArtworkModalProps {
     artwork: Artwork;
+    nextArtwork?: Artwork;
+    prevArtwork?: Artwork;
     onClose: () => void;
     onPrev: () => void;
     onNext: () => void;
     onUpdate: (updated: Artwork) => void;
 }
 
-const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, onNext, onUpdate }) => {
+const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, nextArtwork, prevArtwork, onClose, onPrev, onNext, onUpdate }) => {
     const { isAdmin } = useAuth();
     const [currentImage, setCurrentImage] = useState(artwork.imageUrl);
 
@@ -38,7 +40,6 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
         };
     }, []);
 
-
     useEffect(() => {
         setCurrentImage(artwork.imageUrl);
         setTitle(artwork.title);
@@ -48,6 +49,18 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
         setIsEditing(false);
         setSaveError('');
     }, [artwork]);
+
+    // Précharge les images adjacentes
+    useEffect(() => {
+        if (nextArtwork?.imageUrl) {
+            const img = new window.Image();
+            img.src = nextArtwork.imageUrl;
+        }
+        if (prevArtwork?.imageUrl) {
+            const img = new window.Image();
+            img.src = prevArtwork.imageUrl;
+        }
+    }, [nextArtwork, prevArtwork]);
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
@@ -113,13 +126,11 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
                     className={`${styles.artworkImage} ${artwork.detailImages?.length === 0 ? styles.artworkImageFull : ''}`}
                 />
 
-
                 <div className={styles.artworkDetails}>
 
                     {/* Haut : titre + édition */}
                     <div className={styles.detailsTop}>
 
-                        {/* Ligne titre + bouton modifier */}
                         <div className={styles.titleRow}>
                             {isEditing ? (
                                 <input
@@ -137,7 +148,6 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
                             )}
                         </div>
 
-                        {/* Collection */}
                         {isEditing ? (
                             <input
                                 className={styles.editInput}
@@ -149,7 +159,6 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
                             collection && <p className={styles.collection}>{collection}</p>
                         )}
 
-                        {/* Description */}
                         {isEditing ? (
                             <textarea
                                 className={styles.editTextarea}
@@ -161,7 +170,6 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
                             <p className={styles.description}>{description}</p>
                         )}
 
-                        {/* Boutons save/cancel */}
                         {isAdmin && isEditing && (
                             <div className={styles.adminActions}>
                                 <button className={styles.saveButton} onClick={handleSave} disabled={saving}>
