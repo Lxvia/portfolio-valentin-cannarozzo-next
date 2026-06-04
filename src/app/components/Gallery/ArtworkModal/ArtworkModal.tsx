@@ -106,7 +106,11 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
                 onTouchEnd={handleTouchEnd}>
 
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={currentImage} alt={artwork.title} className={styles.artworkImage} />
+                <img
+                    src={currentImage}
+                    alt={artwork.title}
+                    className={`${styles.artworkImage} ${artwork.detailImages?.length === 0 ? styles.artworkImageFull : ''}`}
+                />
 
                 <div className={styles.artworkDetails}>
 
