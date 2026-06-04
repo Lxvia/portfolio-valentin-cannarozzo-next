@@ -3,6 +3,7 @@ export interface Artwork {
     year: number;
     title: string;
     imageUrl: string;
+    thumbnailUrl?: string;
     description: string;
     detailImages: string[];
     collection?: string;

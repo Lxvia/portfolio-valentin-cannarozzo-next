@@ -21,7 +21,7 @@ const GalleryLayout: React.FC<GalleryLayoutProps> = ({ artworks, onSelectArtwork
                     onClick={() => onSelectArtwork(art)}
                 >
                     <Image
-                        src={art.imageUrl}
+                        src={art.thumbnailUrl || art.imageUrl}
                         alt={art.title}
                         fill
                         className={styles.artworkImage}

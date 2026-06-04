@@ -29,6 +29,20 @@ const AddArtworkModal: React.FC<AddArtworkModalProps> = ({ onClose, onAdd, curre
         return getDownloadURL(storageRef);
     };
 
+    const uploadThumbnail = async (file: File, basePath: string, titleSlug: string): Promise<string> => {
+        const bitmap = await createImageBitmap(file);
+        const canvas = document.createElement('canvas');
+        const scale = Math.min(1, 400 / bitmap.width);
+        canvas.width = bitmap.width * scale;
+        canvas.height = bitmap.height * scale;
+        const ctx = canvas.getContext('2d')!;
+        ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+
+        const blob = await new Promise<Blob>((resolve) => canvas.toBlob((b) => resolve(b!), 'image/webp', 0.75));
+        const thumbFile = new File([blob], `${titleSlug}_thumb.webp`, { type: 'image/webp' });
+        return uploadImage(thumbFile, `${basePath}/${titleSlug}_thumb.webp`);
+    };
+
     const slugify = (text: string) =>
         text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
             .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -54,6 +68,9 @@ const AddArtworkModal: React.FC<AddArtworkModalProps> = ({ onClose, onAdd, curre
                 `${basePath}/${titleSlug}.${mainExt}`
             );
 
+            // Upload thumbnail
+            const thumbnailUrl = await uploadThumbnail(mainImage, basePath, titleSlug);
+
             // Upload images de détail
             const detailUrls: string[] = [];
             for (let i = 0; i < detailImages.length; i++) {
@@ -72,6 +89,7 @@ const AddArtworkModal: React.FC<AddArtworkModalProps> = ({ onClose, onAdd, curre
                 collection: collection_,
                 year,
                 imageUrl,
+                thumbnailUrl,
                 detailImages: detailUrls,
                 order: currentMaxOrder + 1,
                 isPublished: true,
