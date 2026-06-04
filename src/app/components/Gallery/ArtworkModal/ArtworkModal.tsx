@@ -107,10 +107,12 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
 
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
+                    key={artwork.id}
                     src={currentImage}
                     alt={artwork.title}
                     className={`${styles.artworkImage} ${artwork.detailImages?.length === 0 ? styles.artworkImageFull : ''}`}
                 />
+
 
                 <div className={styles.artworkDetails}>
 
@@ -212,10 +214,10 @@ const ArtworkModal: React.FC<ArtworkModalProps> = ({ artwork, onClose, onPrev, o
                         </div>
 
                         {artwork.detailImages && artwork.detailImages.length > 0 && (
-                            <div className={styles.detailsGallery}>
+                            <div key={artwork.id} className={styles.detailsGallery}>
                                 {[artwork.imageUrl, ...artwork.detailImages].map((detailUrl, index) => (
                                     <Image
-                                        key={index}
+                                        key={`${artwork.id}-${index}`}
                                         src={detailUrl}
                                         alt={`Détail ${index} de ${artwork.title}`}
                                         width={60}
